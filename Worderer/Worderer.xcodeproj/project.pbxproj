@@ -8,23 +8,42 @@
 
 /* Begin PBXBuildFile section */
 		38C68D011D2545A800218945 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C68D001D2545A800218945 /* main.m */; };
+		38C68D0A1D254CF200218945 /* CharTreeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 38C68D091D254CF200218945 /* CharTreeLayer.m */; };
+		38C68D0E1D25567C00218945 /* TestData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38C68D0C1D2555ED00218945 /* TestData.plist */; };
+		38C68D121D2558AD00218945 /* TestData.plist in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38C68D0C1D2555ED00218945 /* TestData.plist */; };
+		38C68D181D25612100218945 /* word_rus.txt in CopyFiles */ = {isa = PBXBuildFile; fileRef = 38C68D161D2560DA00218945 /* word_rus.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		38C68CFB1D2545A800218945 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			dstPath = /usr/share/man/man1;
 			dstSubfolderSpec = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 1;
+		};
+		38C68D111D2558A200218945 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				38C68D121D2558AD00218945 /* TestData.plist in CopyFiles */,
+				38C68D181D25612100218945 /* word_rus.txt in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		38C68CFD1D2545A800218945 /* Worderer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Worderer; sourceTree = BUILT_PRODUCTS_DIR; };
 		38C68D001D2545A800218945 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		38C68D081D254CF200218945 /* CharTreeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharTreeLayer.h; path = ../../Classes/CharTreeLayer.h; sourceTree = "<group>"; };
+		38C68D091D254CF200218945 /* CharTreeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharTreeLayer.m; path = ../../Classes/CharTreeLayer.m; sourceTree = "<group>"; };
+		38C68D0C1D2555ED00218945 /* TestData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = TestData.plist; path = ../../Resources/TestData.plist; sourceTree = "<group>"; };
+		38C68D161D2560DA00218945 /* word_rus.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = word_rus.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +76,11 @@
 		38C68CFF1D2545A800218945 /* Worderer */ = {
 			isa = PBXGroup;
 			children = (
+				38C68D161D2560DA00218945 /* word_rus.txt */,
+				38C68D0C1D2555ED00218945 /* TestData.plist */,
 				38C68D001D2545A800218945 /* main.m */,
+				38C68D081D254CF200218945 /* CharTreeLayer.h */,
+				38C68D091D254CF200218945 /* CharTreeLayer.m */,
 			);
 			path = Worderer;
 			sourceTree = "<group>";
@@ -69,6 +92,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 38C68D041D2545A800218945 /* Build configuration list for PBXNativeTarget "Worderer" */;
 			buildPhases = (
+				38C68D111D2558A200218945 /* CopyFiles */,
+				38C68D0D1D25567700218945 /* Resources */,
 				38C68CF91D2545A800218945 /* Sources */,
 				38C68CFA1D2545A800218945 /* Frameworks */,
 				38C68CFB1D2545A800218945 /* CopyFiles */,
@@ -113,12 +138,24 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		38C68D0D1D25567700218945 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38C68D0E1D25567C00218945 /* TestData.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		38C68CF91D2545A800218945 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				38C68D011D2545A800218945 /* main.m in Sources */,
+				38C68D0A1D254CF200218945 /* CharTreeLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +183,8 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -190,7 +229,9 @@
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
