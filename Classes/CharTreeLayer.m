@@ -34,12 +34,10 @@ const char wordStartChar = 13;
     CharTreeLayer *l0 = nil;
     CharTreeLayer *l1 = nil;
     CharTreeLayer *l2 = nil;
-    CharTreeLayer *l3 = nil;
     for (NSString *word in words) {
-        l0 = l1 = l2 = l3 = nil;
+        l0 = l1 = l2 = nil;
         for (NSInteger i = 0; i < word.length; i++) {
-            unichar c = [word characterAtIndex:i];
-            //[word getCharacters:&c range:[word rangeOfComposedCharacterSequenceAtIndex:i]];
+            unsigned char c = [word characterAtIndex:i] & 0xff;
             if (l0 == nil) {
                 l0 = [charTree addSubChar:c];
             } else {
@@ -48,8 +46,6 @@ const char wordStartChar = 13;
                 } else {
                     if (l2 == nil) {
                         l2 = [l1 addSubChar:c];
-                    } else {
-                        l3 = [l2 addSubChar:c];
                         break;
                     }
                 }
@@ -57,34 +53,31 @@ const char wordStartChar = 13;
         }
     }
     for (NSString *word in words) {
-        l0 = l1 = l2 = l3 = nil;
+        l0 = l1 = l2 = nil;
         for (NSInteger i = 0; i < word.length; i++) {
-            unichar c = [word characterAtIndex:i];
+            unsigned char c = [word characterAtIndex:i] & 0xff;
             if (l0 == nil) {
                 l0 = [charTree addSubChar:c];
             } else {
                 if (l1 == nil) {
                     l1 = [l0 addSubChar:c];
                 } else {
-                    if (l2 == nil) {
-                        l2 = [l1 addSubChar:c];
-                    } else {
-                        l3 = [l2 addSubChar:c];
-                        l0 = [l0 layerByC:l1.c];
-                        l1 = [l1 layerByC:l2.c];
-                        l2 = [l2 layerByC:l3.c];
-                    }
+                    l2 = [l1 addSubChar:c];
+                    l0 = [charTree layerByC:l0.c];
+                    l1 = [l0 addSubChar:l1.c];
+                    //l1 = [l0 layerByC:l1.c];
+                    l2 = [l1 addSubChar:l2.c];
+                    //l2 = [l1 layerByC:l2.c];
+                    
+                    l0 = l1;
+                    l1 = l2;
                 }
             }
         }
         if (l0 == nil) continue;
         if (l1) {
             if (l2) {
-                if (l3) {
-                    [l3 addSubChar:0];
-                } else {
-                    [l2 addSubChar:0];
-                }
+                [l2 addSubChar:0];
             } else {
                 [l1 addSubChar:0];
             }
