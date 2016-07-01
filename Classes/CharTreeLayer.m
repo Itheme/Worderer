@@ -220,7 +220,7 @@ const char wordStartChar = 13;
     if (i > 10) {
         return [self randomWord];
     }
-    return [NSString stringWithCharacters:cString length:i];
+    return [NSString stringWithCharacters:cString length:i - 1];
 
 }
 
